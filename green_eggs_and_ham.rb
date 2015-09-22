@@ -27,8 +27,9 @@ class GreenEggsAndHam
   end
 
   def longest_word
-    story_words.max_by(&:length)
-    p story_words.max_by(&:length)
+    story_words.max_by { |word| word.length}
+    # story_words.max_by(&:length) <- from class
+    p story_words.max_by { |word| word.length}
   end
 
   def frequency_of_unique_words
@@ -46,6 +47,11 @@ class GreenEggsAndHam
     num_lines = @text.split(/\n/)
     lines_wo_space = num_lines.delete_if { |x| x == ""}
     p lines_wo_space
+  end
+  def punctuation_count
+    count_punct = @text.scan(/[!,.?]/).length
+    p count_punct
+
 
   end
  end
